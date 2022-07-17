@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 닫기 혹은 새로고침 감지하기</title>
+</head>
+
+<body>
+    <h4>
+        브라우저 닫기 혹은 새로고침 감지하기
+    </h4>
+    <form>
+        <textarea placeholder="글자를 입력해서 페이지를 사용해보세요."></textarea>
+    </form>
+
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', (event) => {
+            // 명세에 따라 preventDefault는 호출해야하며, 기본 동작을 방지합니다.
+            event.preventDefault();
+            console.log("브라우저 닫힘");
+            // 대표적으로 Chrome에서는 returnValue 설정이 필요합니다.
+            event.returnValue = '';
+        });
+    </script>
+</body>
+
+</html>

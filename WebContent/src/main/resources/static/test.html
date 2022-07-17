@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>kill session test</title>
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+</head>
+<body>
+	Hello!
+</body>
+<script>
+  window.onunload = function() {
+    console.log('unload');
+    kill(true);
+  }
+  
+  $(function() {
+    kill(false);
+  });
+  
+  function kill(isClose) {
+    $.ajax({
+      url: '/kill?isClose=' + isClose,
+      method: 'get'
+    }).done(function(resp) {
+      //do nothing
+    });
+  }
+</script>
+</html>
