@@ -15,7 +15,6 @@ self.addEventListener('push', function(e) {
         ]
     };
     e.waitUntil(
-        self.registration.showNotification('순번대기 완료!', options)
+        self.registration.showNotification('순번대기 완료!', sessionStorage.tabID)
     );
-    console.log(sessionStorage.tabID);
 });
